@@ -64,4 +64,4 @@ permissions:
 
   skipsleep.command.help:
     description: Show help information
-    default: true
+    default: op
