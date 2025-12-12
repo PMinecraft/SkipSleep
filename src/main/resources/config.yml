@@ -1,20 +1,82 @@
-#Whether to enable update detection
+# ============================================
+# SkipSleep Configuration
+# ============================================
+
+# Whether to enable update checking on startup
 update: true
-#Whether to enable the function of this plugin
+
+# Whether to enable the skip sleep feature
 skip: true
-#Set how many people to sleep and skip the night
-skipNum: 1
-#Total percentage of people sleeping,The best percentage is 25% 50% 75%
-skipPet: 50
-#skip mode pet num
+
+# ============================================
+# Skip Mode Settings
+# ============================================
+
+# Skip mode: 'num' (fixed number) or 'pet' (percentage)
 model: 'num'
 
-#Select your language
+# Fixed number mode: How many players need to sleep to skip the night
+skipNum: 1
+
+# Percentage mode: What percentage of players need to sleep (1-100)
+skipPet: 50
+
+# ============================================
+# Sound Settings
+# ============================================
+
+# Notification sound settings
+sound:
+  # Enable or disable notification sounds
+  enabled: true
+  # Sound name (from Bukkit Sound enum)
+  # Options: BLOCK_NOTE_BLOCK_BASS, BLOCK_NOTE_BLOCK_BELL, ENTITY_EXPERIENCE_ORB_PICKUP, etc.
+  name: 'BLOCK_NOTE_BLOCK_BASS'
+  # Sound volume (0.0 - 1.0)
+  volume: 1.0
+  # Sound pitch (0.5 - 2.0)
+  pitch: 1.0
+
+# ============================================
+# AFK Detection Settings
+# ============================================
+
+# AFK players will be excluded from the sleeping count
+afk:
+  # Enable or disable AFK player exclusion
+  excludeAfk: false
+  # How many seconds of inactivity before a player is considered AFK
+  # Tracked activities: movement, chat, interaction, attack, etc.
+  inactivityThreshold: 300
+
+# ============================================
+# World Settings
+# ============================================
+
+# List of worlds where SkipSleep is disabled
+# Leave empty to enable in all worlds
+disabledWorlds: []
+# Example:
+# disabledWorlds:
+#   - 'world_nether'
+#   - 'world_the_end'
+
+# ============================================
+# Message Settings
+# ============================================
+
+# Whether to show progress messages when players enter/leave bed
+showProgressMessages: true
+
+# Whether to show the "skipping night" message
+showSkipMessage: true
+
+# ============================================
+# Language Settings
+# ============================================
+
+# Language configuration
 Language:
-  #Without your language
-  #You can create your own language file
-  #1.Copy one of the language files
-  #2.Change its name (you can change it without any requirement)
-  #3.Set the lang option to the created Lang file
-  #4.Change the Messages in the lang file
+  # Available languages: chinese, english, german
+  # You can also create your own language file in the lang folder
   lang: chinese

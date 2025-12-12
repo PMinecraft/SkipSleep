@@ -3,69 +3,65 @@ version: '${project.version}'
 main: com.skipsleep.SkipSleep
 author: PlaidMrdeer
 website: https://www.spigotmc.org/resources/skipsleep.106146/
-description: A lightweight plugin that only needs one person to sleep and can skip the night
+description: A lightweight plugin that allows skipping the night with only a portion of players sleeping
 api-version: 1.13
+softdepend:
+  - Essentials
 
 commands:
-  skipsleepenable:
+  skipsleep:
     aliases:
-      - skse
-    description: skipsleepenable-command
-
-  skipsleepnumber:
-    aliases:
-      - sksn
-    description: skipsleepnumber-command
-
-  skipsleepmodel:
-    aliases:
-      - sksm
-    description: skipsleepmodel-command
-
-  skipsleeppet:
-    aliases:
-      - sksp
-    description: skipsleeppet-command
-
-  skipsleepreload:
-    aliases:
-      - sksr
-    description: skipsleepreload-command
-
-  skipsleephelp:
-    aliases:
-      - sksh
-    description: skipsleephelp-command
-
-  skipsleepupdate:
-    aliases:
-      - sksu
-    description: skipsleepupdate-command
+      - sks
+    description: Main command for SkipSleep plugin
+    usage: /skipsleep <enable|number|mode|percent|sound|status|reload|update|help> [args]
 
 permissions:
-  SkipSleep.command.skipsleepenable:
-    description: skipsleepenable-command
+  skipsleep.command.*:
+    description: All SkipSleep commands
+    default: op
+    children:
+      skipsleep.command.enable: true
+      skipsleep.command.number: true
+      skipsleep.command.mode: true
+      skipsleep.command.percent: true
+      skipsleep.command.sound: true
+      skipsleep.command.status: true
+      skipsleep.command.reload: true
+      skipsleep.command.update: true
+      skipsleep.command.help: true
+
+  skipsleep.command.enable:
+    description: Enable or disable the skip sleep feature
     default: op
 
-  SkipSleep.command.skipsleepnumber:
-    description: skipsleepsetnum-command
+  skipsleep.command.number:
+    description: Set the number of players needed to skip
     default: op
 
-  SkipSleep.command.skipsleepmodel:
-    description: skipsleepmodel-command
+  skipsleep.command.mode:
+    description: Switch between number and percentage mode
     default: op
 
-  SkipSleep.command.skipsleeppet:
-    description: skipsleeppet-command
+  skipsleep.command.percent:
+    description: Set the percentage of players needed to skip
     default: op
 
-  SkipSleep.command.skipsleepreload:
-    description: skipsleepreload-command
+  skipsleep.command.sound:
+    description: Enable or disable notification sounds
     default: op
 
-  SkipSleep.command.skipsleephelp:
-    description: skipsleephelp-command
+  skipsleep.command.status:
+    description: View current plugin status and settings
     default: op
-  SkipSleep.command.skipsleepupdate:
-    description: skipsleepupdate-command
+
+  skipsleep.command.reload:
+    description: Reload the plugin configuration
     default: op
+
+  skipsleep.command.update:
+    description: Enable or disable update checking
+    default: op
+
+  skipsleep.command.help:
+    description: Show help information
+    default: true
